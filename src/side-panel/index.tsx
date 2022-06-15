@@ -2,6 +2,7 @@ import React, { ComponentType, useCallback, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import NoteList from '../note-list';
 import { reorder } from '../utils';
+import { SidePanelWrapper } from './styles.css';
 
 const SidePanel: ComponentType = () => {
 
@@ -29,10 +30,10 @@ const SidePanel: ComponentType = () => {
 	<DragDropContext onDragEnd={onDragEnd}>
 		<Droppable droppableId="list">
 		{provided => (
-			<div ref={provided.innerRef} {...provided.droppableProps}>
+			<SidePanelWrapper ref={provided.innerRef} {...provided.droppableProps}>
 			<NoteList notes={notes} />
 			{provided.placeholder}
-			</div>
+			</SidePanelWrapper>
 		)}
 		</Droppable>
 	</DragDropContext>

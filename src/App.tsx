@@ -1,5 +1,6 @@
 import React, { ComponentType } from 'react';
 import './App.css';
+import NavHeader from './navigation';
 import SidePanel from './side-panel';
 
 //Sexy Notion mock
@@ -11,9 +12,12 @@ import SidePanel from './side-panel';
 const App: ComponentType = () => {
 
   return (
-    <div className="App">
-      <SidePanel />
-    </div>
+    <>
+      <NavHeader/>
+      <div className="App">
+        <SidePanel />
+      </div>
+    </>
   );
 }
 
