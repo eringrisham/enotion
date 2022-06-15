@@ -1,6 +1,6 @@
-import React, { ComponentType } from "react";
-import { Draggable } from "react-beautiful-dnd";
-import { Note } from "../types";
+import React, { ComponentType } from 'react';
+import { Draggable } from 'react-beautiful-dnd';
+import { Note } from '../types';
 import { NoteItemWrapper } from './styles.css';
 
 const NoteItem: ComponentType<NoteItemProps> = ({ note, index }) => {
