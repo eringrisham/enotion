@@ -37,7 +37,7 @@ const SidePanel: ComponentType = () => {
 		<Droppable droppableId="list">
 		{provided => (
 			<div ref={provided.innerRef} {...provided.droppableProps}>
-			<NoteList notes={[...state]} />
+			<NoteList notes={state} />
 			{provided.placeholder}
 			</div>
 		)}

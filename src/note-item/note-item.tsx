@@ -19,7 +19,7 @@ const NoteItem: ComponentType<NoteItemProps> = ({ note, index }) => {
 	padding: ${grid}px;
 `;
 	return (
-		<Draggable draggableId={note.id} index={index}>
+		<Draggable draggableId={note.content} index={index}>
 			{provided => (
 			<NoteItem
 				ref={provided.innerRef}
