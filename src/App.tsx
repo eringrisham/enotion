@@ -1,6 +1,6 @@
 import React, { ComponentType } from 'react';
 import './App.css';
-import SidePanel from './side-panel/side-panel';
+import SidePanel from './side-panel';
 
 //Sexy Notion mock
 //left-side panel
