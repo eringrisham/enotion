@@ -1,6 +1,6 @@
-import React, { ComponentType, useCallback, useState } from "react";
+import React, { ComponentType, useCallback, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
-import NoteList from "../note-list";
+import NoteList from '../note-list';
 import { reorder } from '../utils';
 
 const SidePanel: ComponentType = () => {

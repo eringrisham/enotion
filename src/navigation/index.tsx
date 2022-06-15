@@ -5,7 +5,6 @@ interface NavHeaderProps {
 }
 
 const NavHeader: ComponentType<NavHeaderProps> = () => {
-
 	return (
 		<>
 		</>

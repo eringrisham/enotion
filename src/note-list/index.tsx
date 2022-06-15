@@ -1,6 +1,6 @@
-import React, { ComponentType } from "react";
-import NoteItem from "../note-item";
-import { Note } from "../types";
+import React, { ComponentType } from 'react';
+import NoteItem from '../note-item';
+import { Note } from '../types';
 
 const NoteList: ComponentType<NoteListProps> = ({ notes }) => (
 	<>
