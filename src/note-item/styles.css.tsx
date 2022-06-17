@@ -8,6 +8,7 @@ export const NoteItemWrapper = styled.div`
 	margin-bottom: ${grid}px;
 	background-color: black;
 	color: white;
+	text-align: center;
 	padding: ${grid}px;
 	&:hover {
 		color: #ffee10;

@@ -18,6 +18,7 @@ export const TextWrapper = styled.div`
 	padding-top: 2%;
 	padding-left: 2%;
 	padding-right: 2%;
+	margin-bottom: 1%;
 	&:hover {
 		color: #ffee10;
 		box-shadow: 0 0 5px #ffee10;
