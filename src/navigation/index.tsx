@@ -1,9 +1,9 @@
 import { ComponentType } from 'react';
 import {
-	BrowserRouter as Router,
-	Routes,
+	Link,
 	Route,
-	Link
+	BrowserRouter as Router,
+	Routes
   } from 'react-router-dom';
 import { NavWrapper, TextWrapper } from './styles.css';
 

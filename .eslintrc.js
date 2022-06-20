@@ -1,4 +1,9 @@
-module.exports = {
+export const rules = {
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended'
+  ],
   env: {
     browser: true,
     es2021: true,
@@ -17,5 +22,13 @@ module.exports = {
   ],
   rules: {
     quotes: [2, 'single', { avoidEscape: true }],
+    'sort-imports':
+    [
+      'error',
+      {
+        'ignoreCase': true,
+        'ignoreDeclarationSort': true
+      }
+    ],
   },
 };

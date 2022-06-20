@@ -1,5 +1,5 @@
 import React, { ComponentType, useState } from 'react';
-import { AddNoteButtonWrapper, PlusSignWrapper, AddNoteInput } from './styles.css';
+import { AddNoteButtonWrapper, AddNoteInput, PlusSignWrapper } from './styles.css';
 import { BsPlusSquare } from 'react-icons/bs';
 import { setFocus } from '../utils';
 
