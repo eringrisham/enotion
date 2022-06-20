@@ -2,7 +2,7 @@ import{ Note } from '../database';
 
 export interface NoteType {
 	id: number;
-	name: string;
+	title: string;
 	imageUrl: string;
 	text: string;
 	date: string;
@@ -19,7 +19,7 @@ const models = {
 					},
 					{
 						id: note.id,
-						name: note.name,
+						title: note.title,
 						image_url: note.imageUrl,
 						text: note.text,
 						date: note.date,

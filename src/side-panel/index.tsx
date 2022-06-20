@@ -5,10 +5,11 @@ import NoteList from '../note-list';
 import { reorder } from '../utils';
 import { SidePanelWrapper } from './styles.css';
 import { v4 as uuid } from 'uuid';
+import { exampleData } from '../exampleData';
 
 const SidePanel: ComponentType = () => {
 
-	const [notes, setNotes] = useState([{id: uuid(), content: 'A note'}, {id: uuid(), content: 'Another note'}]);
+	const [notes, setNotes] = useState(exampleData);
 
 	const onDragEnd = useCallback((result: DropResult) => {
 		if (!result.destination) {
@@ -32,7 +33,7 @@ const SidePanel: ComponentType = () => {
 		if (!note) {
 			return;
 		}
-		setNotes([...notes, {id: uuid(), content: note }]);
+		setNotes([...notes, {id: uuid(), title: note , imageUrl: 'blah', text: 'meow meow meow', date: (new Date()).toString()}]);
 	}
 
 	return (

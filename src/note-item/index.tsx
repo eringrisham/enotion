@@ -11,7 +11,7 @@ const NoteItem: ComponentType<NoteItemProps> = ({ note, index }) => (
 			{...provided.draggableProps}
 			{...provided.dragHandleProps}
 		>
-			{note.content}
+			{note.title}
 		</NoteItemWrapper>
 		)}
 	</Draggable>

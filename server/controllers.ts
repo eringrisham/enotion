@@ -16,7 +16,11 @@ const controllers = {
 
 	postNote: () => {
 
-	}
+	},
+
+	putNote: () => {
+
+	},
 }
 
 export default controllers;

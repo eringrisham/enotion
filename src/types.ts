@@ -1,4 +1,7 @@
 export type Note = {
-	id: string,
-	content: string,
+	id: string;
+	title: string;
+	imageUrl: string;
+	text: string;
+	date: string;
 }
