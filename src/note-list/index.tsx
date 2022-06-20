@@ -6,8 +6,7 @@ const NoteList: ComponentType<NoteListProps> = ({ notes }) => (
 	<>
 		{notes.map((note: Note, index: number) => (
 			<NoteItem note={note} index={index} key={note.id} />
-		))
-	}
+		))}
 	</>
 );
 
