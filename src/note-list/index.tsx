@@ -1,15 +1,22 @@
-import React, { ComponentType } from 'react';
+import { ComponentType, useEffect } from 'react';
 import NoteItem from '../note-item';
 import { Note } from '../types';
 
-const NoteList: ComponentType<NoteListProps> = ({ notes }) => (
-	<>
-		{notes.map((note: Note, index: number) => (
-			<NoteItem note={note} index={index} key={note.id} />
-		))
-	}
-	</>
-);
+const NoteList: ComponentType<NoteListProps> = ({ notes }) => {
+
+	useEffect(() => {
+
+	}, [notes]);
+
+	return (
+		<>
+			{notes.map((note: Note, index: number) => (
+				<NoteItem note={note} index={index} key={note.id} />
+			))
+		}
+		</>
+	)
+};
 
 /**
 * @interface NoteListProps
