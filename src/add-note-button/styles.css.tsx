@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const grid = 8;
 
-export const AddNoteContainer = styled.button`
+export const AddNoteContainer = styled.div`
 	-moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
@@ -11,8 +11,10 @@ export const AddNoteContainer = styled.button`
 	margin-bottom: ${grid}px;
 	background-color: black;
 	color: white;
-	text-align: center;
+	display: flex;
+	justify-content: center;
 	padding: ${grid}px;
+	cursor: pointer;
 	&:hover {
 		color: #ffee10;
 		box-shadow: 0 0 5px #ffee10;
@@ -34,16 +36,9 @@ export const AddNoteInput = styled.input`
 	padding: 0;
 	border: 0;
 	outline: 0;
-	font-size: 100%;
+	font-size: 110%;
 	vertical-align: baseline;
 	border-collapse: True;
 	background: transparent;
 	color: white;
-	border: none;
-	*:focus {
-		border-top-style: hidden;
-		border-right-style: hidden;
-		border-left-style: hidden;
-		border-bottom-style: groove;
-	}
 `

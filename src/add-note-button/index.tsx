@@ -15,39 +15,43 @@ const AddNoteButton: ComponentType<AddNoteButtonProps> = ({ addNote }) => {
 		setNoteInput(e.target.value);
 	}
 
-	const resetInput = () => {
+	const resetNoteInput = () => {
 		setNoteInput('');
 	}
 
 	return (
 		<>
-			{!addClicked &&
+			{addClicked ?
+				<AddNoteContainer>
+					<form
+						onSubmit={() => {
+							addNote(noteInput);
+							toggleAddClicked();
+							resetNoteInput();
+						}}
+					>
+						<AddNoteInput
+							id='add-note-input'
+							type="text"
+							value={noteInput}
+							onChange={handleNoteInput}
+						/>
+					</form>
+				</AddNoteContainer>
+			:
 				<AddNoteContainer
 					onClick={() => {
 						toggleAddClicked();
+						setTimeout(() => {
+							const input = document.getElementById('add-note-input');
+							input?.focus();
+						})
 					}}
 				>
 					Add Note
 					<PlusSignWrapper>
 						<BsPlusSquare/>
 					</PlusSignWrapper>
-				</AddNoteContainer>
-			}
-			{addClicked &&
-				<AddNoteContainer>
-					<form
-						onSubmit={() => {
-							addNote(noteInput);
-							toggleAddClicked();
-							resetInput();
-						}}
-					>
-						<AddNoteInput
-							type="text"
-							value={noteInput}
-							onChange={handleNoteInput}
-						/>
-					</form>
 				</AddNoteContainer>
 			}
 		</>
