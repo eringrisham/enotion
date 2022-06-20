@@ -15,9 +15,10 @@ export const NavWrapper = styled.div`
 
 export const TextWrapper = styled.div`
 	font-size: 24px;
-	padding-top: 2%;
+	padding-top: 1.5%;
 	padding-left: 2%;
 	padding-right: 2%;
+	padding-bottom: 1.5%;
 	margin-bottom: 1%;
 	&:hover {
 		color: #ffee10;

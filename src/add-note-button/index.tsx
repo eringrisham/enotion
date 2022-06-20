@@ -33,6 +33,7 @@ const AddNoteButton: ComponentType<AddNoteButtonProps> = ({ addNote }) => {
 						<AddNoteInput
 							id='add-note-input'
 							type="text"
+							placeholder='Add note here'
 							value={noteInput}
 							onChange={handleNoteInput}
 						/>

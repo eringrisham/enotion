@@ -15,7 +15,7 @@ const NavHeader: ComponentType<NavHeaderProps> = () => {
 	return (
 		<NavWrapper>
 			<TextWrapper>
-			Enotion
+				Enotion
 			</TextWrapper>
 			<TextWrapper>
 				Notes
