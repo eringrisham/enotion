@@ -20,6 +20,11 @@ const AddNoteButton: ComponentType<AddNoteButtonProps> = ({ addNote }) => {
 		setNoteInput('');
 	}
 
+	const focusInput = () => {
+		toggleAddClicked();
+		setFocus('add-note-input');
+	}
+
 	return (
 		<>
 			{addClicked ?
@@ -44,11 +49,13 @@ const AddNoteButton: ComponentType<AddNoteButtonProps> = ({ addNote }) => {
 			:
 				<AddNoteButtonWrapper
 					tabIndex={0}
-					id='add-note-button'
-					onClick={() => {
-						toggleAddClicked();
-						setFocus('add-note-input');
+					onKeyDown={(e) => {
+						if (e.key === 'Enter') {
+							focusInput();
+						}
 					}}
+					id='add-note-button'
+					onClick={focusInput}
 				>
 					Add Note
 					<PlusSignWrapper>
