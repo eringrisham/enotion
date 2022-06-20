@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const grid = 8;
 
-export const AddNoteContainer = styled.div`
+export const AddNoteButtonWrapper = styled.div`
 	-moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;

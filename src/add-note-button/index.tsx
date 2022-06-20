@@ -1,6 +1,7 @@
 import React, { ComponentType, useState } from 'react';
-import { AddNoteContainer, PlusSignWrapper, AddNoteInput } from './styles.css';
+import { AddNoteButtonWrapper, PlusSignWrapper, AddNoteInput } from './styles.css';
 import { BsPlusSquare } from 'react-icons/bs';
+import { setFocus } from '../utils';
 
 const AddNoteButton: ComponentType<AddNoteButtonProps> = ({ addNote }) => {
 
@@ -22,12 +23,13 @@ const AddNoteButton: ComponentType<AddNoteButtonProps> = ({ addNote }) => {
 	return (
 		<>
 			{addClicked ?
-				<AddNoteContainer>
+				<AddNoteButtonWrapper>
 					<form
 						onSubmit={() => {
 							addNote(noteInput);
 							toggleAddClicked();
 							resetNoteInput();
+							setFocus('add-note-button');
 						}}
 					>
 						<AddNoteInput
@@ -38,22 +40,21 @@ const AddNoteButton: ComponentType<AddNoteButtonProps> = ({ addNote }) => {
 							onChange={handleNoteInput}
 						/>
 					</form>
-				</AddNoteContainer>
+				</AddNoteButtonWrapper>
 			:
-				<AddNoteContainer
+				<AddNoteButtonWrapper
+					tabIndex={0}
+					id='add-note-button'
 					onClick={() => {
 						toggleAddClicked();
-						setTimeout(() => {
-							const input = document.getElementById('add-note-input');
-							input?.focus();
-						})
+						setFocus('add-note-input');
 					}}
 				>
 					Add Note
 					<PlusSignWrapper>
 						<BsPlusSquare/>
 					</PlusSignWrapper>
-				</AddNoteContainer>
+				</AddNoteButtonWrapper>
 			}
 		</>
 	)

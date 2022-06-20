@@ -6,3 +6,10 @@ export const reorder = (list: Note[], startIndex: number, endIndex: number) => {
 	result.splice(endIndex, 0, removed);
 	return result;
 };
+
+export const setFocus = (elementId: string) => {
+	setTimeout(() => {
+		const input = document.getElementById(elementId);
+		input?.focus();
+	})
+}
