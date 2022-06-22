@@ -1,4 +1,4 @@
-import { ComponentType, useCallback, useState } from 'react';
+import { ComponentType, useCallback, useEffect, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import AddNoteButton from '../add-note-button';
 import NoteList from '../note-list';
@@ -6,10 +6,20 @@ import { reorder } from '../utils';
 import { SidePanelWrapper } from './styles.css';
 import { v4 as uuid } from 'uuid';
 import { exampleData } from '../exampleData';
+import axios from 'axios';
+import { Note } from '../types';
 
 const SidePanel: ComponentType<SidePanelProps> = ({ toggleNoteOpen }) => {
 
-	const [notes, setNotes] = useState(exampleData);
+	const [notes, setNotes] = useState<Note[]>(exampleData);
+
+	useEffect(() => {
+
+		axios.get<Note[]>('http://localhost:3014/notes')
+		.then(({ data }) => setNotes([...notes, ...data]))
+		.catch(err => console.log('ERROR: ', err));
+
+	}, []);
 
 	const onDragEnd = useCallback((result: DropResult) => {
 		if (!result.destination) {

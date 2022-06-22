@@ -1,14 +1,14 @@
 import{ Note } from '../database';
 
 export interface NoteType {
-	id: number;
+	id: string;
 	title: string;
 	imageUrl: string;
 	text: string;
 	date: string;
 }
 
-const models = {
+export const models = {
 
 	saveAllNotes: (notes: NoteType[]) => {
 		return Promise.all(
@@ -34,5 +34,3 @@ const models = {
 		return Note.find({}).sort('-date').exec();
 	}
 }
-
-export default models;

@@ -1,4 +1,4 @@
-export const rules = {
+module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
@@ -30,5 +30,7 @@ export const rules = {
         'ignoreDeclarationSort': true
       }
     ],
+    'no-empty-function': 'off',
+    '@typescript-eslint/no-empty-function': ['error']
   },
 };

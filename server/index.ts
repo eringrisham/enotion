@@ -11,8 +11,11 @@ app.use(Express.static(__dirname + '/../client/dist'));
 
 app.use(Express.json());
 
+import cors from 'cors';
+app.use(cors());
+
 // Set up our routes
-app.use('/', router);
+app.use('/notes', router);
 
 app.get('/', (req: Express.Request, res: Express.Response) => res.json({ message: 'Hello World' }));
 

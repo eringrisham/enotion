@@ -12,7 +12,7 @@ const NoteItem: ComponentType<NoteItemProps> = ({ note, index, toggleNoteOpen })
 			{...provided.draggableProps}
 			{...provided.dragHandleProps}
 		>
-			{note.title}
+			{note.text}
 		</NoteItemWrapper>
 		)}
 	</Draggable>

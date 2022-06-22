@@ -2,7 +2,9 @@ import { ComponentType } from 'react';
 import NoteItem from '../note-item';
 import { Note } from '../types';
 
-const NoteList: ComponentType<NoteListProps> = ({ notes, toggleNoteOpen }) => (
+const NoteList: ComponentType<NoteListProps> = ({ notes, toggleNoteOpen }) => {
+
+	return (
 	<>
 		{notes.map((note: Note, index: number) => (
 			<NoteItem
@@ -13,7 +15,8 @@ const NoteList: ComponentType<NoteListProps> = ({ notes, toggleNoteOpen }) => (
 				/>
 		))}
 	</>
-);
+	)
+};
 
 /**
 * @interface NoteListProps
