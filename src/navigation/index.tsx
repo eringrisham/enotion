@@ -7,10 +7,6 @@ import {
   } from 'react-router-dom';
 import { NavWrapper, TextWrapper } from './styles.css';
 
-interface NavHeaderProps {
-
-}
-
 const NavHeader: ComponentType<NavHeaderProps> = () => {
 	return (
 		<NavWrapper>
@@ -25,6 +21,10 @@ const NavHeader: ComponentType<NavHeaderProps> = () => {
 			</TextWrapper>
 		</NavWrapper>
 	)
+}
+
+interface NavHeaderProps {
+
 }
 
 export default NavHeader;

@@ -7,7 +7,7 @@ import { SidePanelWrapper } from './styles.css';
 import { v4 as uuid } from 'uuid';
 import { exampleData } from '../exampleData';
 
-const SidePanel: ComponentType = () => {
+const SidePanel: ComponentType<SidePanelProps> = ({ toggleNoteOpen }) => {
 
 	const [notes, setNotes] = useState(exampleData);
 
@@ -15,17 +15,14 @@ const SidePanel: ComponentType = () => {
 		if (!result.destination) {
 			return;
 		}
-
 		if (result.destination.index === result.source.index) {
 			return;
 		}
-
 		const reorderedNotes = reorder(
 			notes,
 			result.source.index,
 			result.destination.index
 		);
-
 		setNotes(reorderedNotes);
 	}, [notes]);
 
@@ -45,7 +42,7 @@ const SidePanel: ComponentType = () => {
 				<Droppable droppableId="list">
 				{provided => (
 					<SidePanelWrapper ref={provided.innerRef} {...provided.droppableProps}>
-					<NoteList notes={notes} />
+					<NoteList notes={notes} toggleNoteOpen={toggleNoteOpen} />
 					{provided.placeholder}
 					</SidePanelWrapper>
 				)}
@@ -53,6 +50,10 @@ const SidePanel: ComponentType = () => {
 			</DragDropContext>
 		</>
 	);
+}
+
+interface SidePanelProps {
+	toggleNoteOpen: () => void;
 }
 
 export default SidePanel;

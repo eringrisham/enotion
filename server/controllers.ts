@@ -3,7 +3,7 @@ import Express from 'express';
 import { NoteType } from '../database/models';
 
 const controllers = {
-  getAllNotes: (req: Express.Request, res: Express.Response) => {
+	getAllNotes: (req: Express.Request, res: Express.Response) => {
 
 		models.getAllNotes()
 		.then((data: NoteType) => res.status(200).send(data))

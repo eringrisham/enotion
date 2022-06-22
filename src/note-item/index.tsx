@@ -3,10 +3,11 @@ import { Draggable } from 'react-beautiful-dnd';
 import { Note } from '../types';
 import { NoteItemWrapper } from './styles.css';
 
-const NoteItem: ComponentType<NoteItemProps> = ({ note, index }) => (
+const NoteItem: ComponentType<NoteItemProps> = ({ note, index, toggleNoteOpen }) => (
 	<Draggable draggableId={note.id} index={index}>
 		{provided => (
 		<NoteItemWrapper
+			onClick={toggleNoteOpen}
 			ref={provided.innerRef}
 			{...provided.draggableProps}
 			{...provided.dragHandleProps}
@@ -25,6 +26,7 @@ const NoteItem: ComponentType<NoteItemProps> = ({ note, index }) => (
 interface NoteItemProps {
 	note: Note;
 	index: number;
+	toggleNoteOpen: () => void;
 }
 
 export default NoteItem;
