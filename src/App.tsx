@@ -53,8 +53,8 @@ const App: ComponentType = () => {
 	const removeNote = (noteId: string) => {
 		const updatedNotes = notes.filter(note => note.id !== noteId);
 		setNotes([...updatedNotes]);
-    const delNote = notes.filter(note => note.id === noteId);
-    setDeletedNote(delNote as unknown as Note);
+    const noteToDelete = notes.filter(note => note.id === noteId);
+    setDeletedNote(noteToDelete as unknown as Note);
 	}
 
   return (
@@ -71,11 +71,11 @@ const App: ComponentType = () => {
           />
         </SidePanelApp>
         {
-        isNoteOpen
+          isNoteOpen
           && !deletedNote
           && <NoteAreaApp>
-                <NotePage />
-             </NoteAreaApp>
+              <NotePage />
+            </NoteAreaApp>
         }
       </MainContainer>
     </>
