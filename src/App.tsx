@@ -72,7 +72,7 @@ const App: ComponentType = () => {
         </SidePanelApp>
         {
           isNoteOpen
-          && !deletedNote
+          && notes.indexOf(deletedNote as unknown as Note) === -1
           && <NoteAreaApp>
               <NotePage />
             </NoteAreaApp>
