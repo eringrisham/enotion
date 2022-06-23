@@ -9,7 +9,7 @@ db.once('open', function() {
 
 const noteSchema = new Schema({
 	id: { type: String, unique : true },
-	name: String,
+	title: String,
 	image_url: String,
 	text: String,
 	date: String,

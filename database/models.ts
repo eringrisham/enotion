@@ -1,5 +1,5 @@
 import{ Note } from '../database';
-
+import { v4 as uuid } from 'uuid';
 export interface NoteType {
 	id: string;
 	title: string;
@@ -34,3 +34,8 @@ export const models = {
 		return Note.find({}).sort('-date').exec();
 	}
 }
+
+models.saveAllNotes( [
+	{id: uuid(), title: 'A note', imageUrl: 'placeholder.png', text: 'My first note!', date: (new Date()).toString()},
+	{id: uuid(), title: 'Another note', imageUrl: 'placeholder.png', text: 'Second note', date: (new Date()).toString()}
+]);

@@ -2,7 +2,11 @@ import { ComponentType } from 'react';
 import NoteItem from '../note-item';
 import { Note } from '../types';
 
-const NoteList: ComponentType<NoteListProps> = ({ notes, toggleNoteOpen }) => {
+const NoteList: ComponentType<NoteListProps> = ({
+	notes,
+	toggleNoteOpen,
+	removeNote,
+ }) => {
 
 	return (
 	<>
@@ -12,6 +16,7 @@ const NoteList: ComponentType<NoteListProps> = ({ notes, toggleNoteOpen }) => {
 				index={index}
 				key={note.id}
 				toggleNoteOpen={toggleNoteOpen}
+				removeNote={removeNote}
 				/>
 		))}
 	</>
@@ -25,6 +30,7 @@ const NoteList: ComponentType<NoteListProps> = ({ notes, toggleNoteOpen }) => {
 interface NoteListProps {
 	notes: Note[];
 	toggleNoteOpen: () => void;
+	removeNote: (noteId: string) => void;
 }
 
 export default NoteList;

@@ -1,47 +1,18 @@
-import { ComponentType, useCallback, useEffect, useState } from 'react';
+import { ComponentType } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import AddNoteButton from '../add-note-button';
 import NoteList from '../note-list';
-import { reorder } from '../utils';
-import { SidePanelWrapper } from './styles.css';
-import { v4 as uuid } from 'uuid';
-import { exampleData } from '../exampleData';
-import axios from 'axios';
 import { Note } from '../types';
 
-const SidePanel: ComponentType<SidePanelProps> = ({ toggleNoteOpen }) => {
+import { SidePanelWrapper } from './styles.css';
 
-	const [notes, setNotes] = useState<Note[]>(exampleData);
-
-	useEffect(() => {
-
-		axios.get<Note[]>('http://localhost:3014/notes')
-		.then(({ data }) => setNotes([...notes, ...data]))
-		.catch(err => console.log('ERROR: ', err));
-
-	}, []);
-
-	const onDragEnd = useCallback((result: DropResult) => {
-		if (!result.destination) {
-			return;
-		}
-		if (result.destination.index === result.source.index) {
-			return;
-		}
-		const reorderedNotes = reorder(
-			notes,
-			result.source.index,
-			result.destination.index
-		);
-		setNotes(reorderedNotes);
-	}, [notes]);
-
-	const addNote = (note: string) => {
-		if (!note) {
-			return;
-		}
-		setNotes([...notes, {id: uuid(), title: note , imageUrl: 'blah', text: 'meow meow meow', date: (new Date()).toString()}]);
-	}
+const SidePanel: ComponentType<SidePanelProps> = ({
+	notes,
+	addNote,
+	onDragEnd,
+	toggleNoteOpen,
+	removeNote,
+}) => {
 
 	return (
 		<>
@@ -52,7 +23,11 @@ const SidePanel: ComponentType<SidePanelProps> = ({ toggleNoteOpen }) => {
 				<Droppable droppableId="list">
 				{provided => (
 					<SidePanelWrapper ref={provided.innerRef} {...provided.droppableProps}>
-					<NoteList notes={notes} toggleNoteOpen={toggleNoteOpen} />
+					<NoteList
+						notes={notes}
+						toggleNoteOpen={toggleNoteOpen}
+						removeNote={removeNote}
+					/>
 					{provided.placeholder}
 					</SidePanelWrapper>
 				)}
@@ -64,6 +39,10 @@ const SidePanel: ComponentType<SidePanelProps> = ({ toggleNoteOpen }) => {
 
 interface SidePanelProps {
 	toggleNoteOpen: () => void;
+	notes: Note[];
+	addNote: (note: string) => void;
+	onDragEnd: (result: DropResult) => void;
+	removeNote: (noteId: string) => void;
 }
 
 export default SidePanel;

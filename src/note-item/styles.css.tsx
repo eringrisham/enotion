@@ -10,6 +10,7 @@ export const NoteItemWrapper = styled.div`
 	color: white;
 	text-align: center;
 	padding: ${grid}px;
+	position: relative;
 	&:hover {
 		color: #ffee10;
 		box-shadow: 0 0 5px #ffee10;
@@ -19,4 +20,11 @@ export const NoteItemWrapper = styled.div`
 		transform: scale(1.1);
 		box-shadow: 0 0 15px #ffee10;
 	}
+`;
+
+export const TrashCanWrapper = styled.span`
+	position: fixed;
+	color: white;
+	z-index: 5000;
+	left: 17%;
 `;
